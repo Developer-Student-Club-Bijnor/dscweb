@@ -32,15 +32,11 @@ urlpatterns = [
     path('courses/', include('courses.urls', namespace='courses')),
     path('competitions/', include('competitions.urls',
                                   namespace='competitions')),
-    path('training/', include('training.urls', namespace='training')),
+    path('trainings/', include('trainings.urls', namespace='trainings')),
     path('workshops/', include('workshops.urls', namespace='workshops')),
 ]
 
-if settings.DEBUG:
-    # test mode
-    from django.conf.urls.static import static
+from django.conf.urls.static import static
 
-    urlpatterns += static(settings.STATIC_URL,
-                          document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
